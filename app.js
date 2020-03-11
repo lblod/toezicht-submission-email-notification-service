@@ -86,7 +86,6 @@ app.get('/generateTask', function(req, res){
 });
 
 app.post('/delta', function(req, res){
-  debugger;
   //get changeset from delta and extract taskId
   const merged=req.body.map(e=>e.inserts).flat();
   const taskId=merged.find((e)=>{ 
@@ -121,7 +120,6 @@ app.post('/delta', function(req, res){
 });
 
 async function email(submissionId){
-  debugger;
   //get email adress of who submitted the form
   //TODO (sergey):this will probably changed once discussed with the client
   const emailAddrQuery=prefixes+`
