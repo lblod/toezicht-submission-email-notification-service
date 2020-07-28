@@ -13,7 +13,7 @@ export const PACKAGE = require('./package-lock.json');
 const MAIL_CONSTRUCTION_CRON = process.env.MAIL_CONSTRUCTION_CRON || '15 8 * * *'; // NOTE: set to run every day at 8:15
 
 // Statics
-export const CREATOR = `http://lblod.data.gift/services/${PACKAGE.name}`;
+export const APP_URI = `http://lblod.data.gift/services/${PACKAGE.name}`;
 
 app.use(bodyParser.json());
 
@@ -30,9 +30,9 @@ app.post('/initiate-mail-construction', async function(req, res) {
     for (let unit of units) {
       console.log(`Creating mail for ${unit.name}`);
       unit.submissions = await EntityFactory.getAllInConceptAutomaticSubmissionsFor(unit);
-      if (unit.submissions.length) {
+      // if (unit.submissions.length) {
         await generateMailFor(unit);
-      }
+      // }
     }
   } catch (e) {
     console.log('Something went wrong while trying to construct the necessary notification e-mails');
