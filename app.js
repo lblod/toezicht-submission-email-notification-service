@@ -3,7 +3,7 @@ import bodyParser from 'body-parser';
 import { app, errorHandler } from 'mu';
 import { CronJob } from 'cron';
 
-import { generateMail } from './lib/email';
+import { generateMailFor } from './lib/email';
 import EntityFactory from './lib/entity-factory';
 
 // Require
@@ -31,11 +31,11 @@ app.post('/initiate-mail-construction', async function(req, res) {
       console.log(`Creating mail for ${unit.name}`);
       unit.submissions = await EntityFactory.getAllInConceptAutomaticSubmissionsFor(unit);
       if (unit.submissions.length) {
-        await generateMail(unit);
+        await generateMailFor(unit);
       }
     }
   } catch (e) {
-    console.log('Something went wrong while trying to construct the necessary mails');
+    console.log('Something went wrong while trying to construct the necessary notification e-mails');
     console.error(e);
     res.send().status(500);
   }
@@ -47,7 +47,7 @@ app.use(errorHandler);
 // CRON-JOBS
 
 new CronJob(MAIL_CONSTRUCTION_CRON, function() {
-  console.log(`construction off e-mails initiated by cron job at ${new Date().toISOString()}`);
+  console.log(`construction off notification e-mails initiated by cron job at ${new Date().toISOString()}`);
   rp.post('http://localhost/initiate-mail-construction');
 }, null, true);
 
