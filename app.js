@@ -35,7 +35,7 @@ app.post('/initiate-mail-construction', async function(req, res) {
       }
     }
   } catch (e) {
-    console.log('Something went wrong while trying to construct the necessary entities');
+    console.log('Something went wrong while trying to construct the necessary mails');
     console.error(e);
     res.send().status(500);
   }
