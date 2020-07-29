@@ -39,7 +39,7 @@ app.post('/initiate-mail-construction', async function(req, res) {
     console.error(e);
     res.send().status(500);
   }
-  res.send().status(200);
+  res.send().status(201);
 });
 
 app.use(errorHandler);
