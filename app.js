@@ -28,7 +28,6 @@ app.post('/initiate-mail-construction', async function(req, res) {
   try {
     const units = await EntityFactory.getAllSubscribedAdministrativeUnites();
     for (let unit of units) {
-      console.log(`Creating mail for ${unit.name}`);
       unit.submissions = await EntityFactory.getAllInConceptAutomaticSubmissionsFor(unit);
       if (unit.submissions.length) {
         await generateMailFor(unit);
