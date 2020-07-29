@@ -12,10 +12,16 @@
 </head>
 
 <body>
-<p style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">Beste</p><br /><br />
-<p style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">Uw bestuur &quot;{{name}}&quot; heeft {{amountOfConcepts}} automatische-meldingen ontvangen op het <a href="http://loket.lokaalbestuur.vlaanderen.be" target="_blank">Loket voor Lokale Besturen</a>, module Toezicht, die uw verdere aandacht vereisen.</p><br />
+<p style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">Beste</p><br/>
+<p style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">Uw bestuur &quot;{{name}}&quot; heeft automatische-meldingen ontvangen op het <a href="http://loket.lokaalbestuur.vlaanderen.be" target="_blank">Loket voor Lokale Besturen</a>, Module Toezicht, die uw verdere aandacht vereisen.</p><br/>
+<p style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">Gelieve onderstaande meldingen zo snel mogelijk te controleren:</p>
+<ul style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">
+    {{#each submissions}}
+        <li style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">{{this}}</li>
+    {{/each}}
+</ul><br/>
 <p style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">Met Vriendelijke Groet</p>
-<p style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">Agentschap Binnenlands Bestuur</p><br /><br />
+<p style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">Agentschap Binnenlands Bestuur</p><br/><br/>
 <p style="color:gray; margin:0; line-height:1.6; font-family:sans-serif; letter-spacing:normal; font-size:14px;">Opgelet, reageren op deze mail kan niet. Voor vragen over het Loket voor Lokale Besturen, mail naar <a href="mailto:loketlokaalbestuur@vlaanderen.be" target="_blank">loketlokaalbestuur@vlaanderen.be</a>. Voor inhoudelijke vragen kan u mailen naar het algemeen mailadres <a href="mailto:binnenland@vlaanderen.be" target="_blank">binnenland@vlaanderen.be</a>.</p>
 </body>
 </html>
