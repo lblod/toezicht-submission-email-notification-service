@@ -3,24 +3,20 @@ import bodyParser from 'body-parser';
 import { app, errorHandler } from 'mu';
 import { CronJob } from 'cron';
 
-import { generateMailFor } from './lib/email';
 import EntityFactory from './lib/entity-factory';
-
-// Require
-export const PACKAGE = require('./package-lock.json');
-
-// Environment variables
-const MAIL_CONSTRUCTION_CRON = process.env.MAIL_CONSTRUCTION_CRON || '15 8 * * *'; // NOTE: set to run every day at 8:15
+import { generateMailFor } from './lib/email';
+import { MAIL_CONSTRUCTION_CRON } from './config';
 
 // Statics
-export const APP_URI = `http://lblod.data.gift/services/${PACKAGE.name}`;
+export const APP_NAME = 'toezicht-submission-email-notification-service';
+export const APP_URI = `http://lblod.data.gift/services/${APP_NAME}`;
 
 app.use(bodyParser.json());
 
 // REST API
 
 app.get('/', function(req, res) {
-  const hello = `Hey, you have reached "${PACKAGE.name}" version ${PACKAGE.version}! Seems like I'm doing just fine! ^_^`;
+  const hello = `Hey, you have reached "${APP_NAME}"! Seems like I'm doing just fine! ^_^`;
   res.send(hello);
 });
 
