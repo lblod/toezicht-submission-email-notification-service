@@ -1,6 +1,6 @@
 {
   "name": "toezicht-submission-email-notification-service",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Service provides the creation of emails that need to be send out in regard to automatic-submissions",
   "main": "app.js",
   "scripts": {
