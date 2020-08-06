@@ -13,11 +13,12 @@
 
 <body>
 <p style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">Beste</p><br/>
-<p style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">Uw bestuur &quot;{{name}}&quot; heeft automatische-meldingen ontvangen op het <a href="http://loket.lokaalbestuur.vlaanderen.be" target="_blank">Loket voor Lokale Besturen</a>, Module Toezicht, die uw verdere aandacht vereisen.</p><br/>
-<p style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">Gelieve onderstaande meldingen zo snel mogelijk te controleren:</p>
+<p style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">Een aantal automatische-inzendingen die we voor het bestuur &quot;{{name}}&quot; hebben ontvangen, konden we niet verwerken.</p>
+<p style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">Gelieve u zo snel mogelijk te begeven naar het <a href="http://loket.lokaalbestuur.vlaanderen.be" target="_blank">Loket voor Lokale Besturen</a>, Module Toezicht, om deze te controleren en verbeteren.</p><br/>
+<p style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">De betreffende inzendingen:</p>
 <ul style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">
     {{#each submissions}}
-        <li style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">{{this}}</li>
+        <li style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;"><a href="{{this}}">{{this}}</a></li>
     {{/each}}
 </ul><br/>
 <p style="margin:0; font-family:sans-serif; letter-spacing:normal; line-height:1.6;">Met Vriendelijke Groet</p>
