@@ -16,7 +16,7 @@ services:
 
 ### Environment variables
 
-- `MAIL_CONSTRUCTION_CRON`: Frequency at witch the e-mails should be "send-out". Defaults to `15 8 * * *`, run every day at 8:15.
+- `MAIL_CONSTRUCTION_CRON`: Frequency at witch the e-mails should be "send-out". Defaults to `0 15 8 * * *`, run every day at 8:15.
 - `MESSAGE_FROM`: sender of the email. NO Defaults implemented.
 - `EMAIL_GRAPH`: refers to the graph where the emails will be stored. Defaults to <http://mu.semte.ch/graphs/system/email>.
 - `EMAIL_FOLDER`: refers to the folder that the emails will be linked to. Defaults to <http://data.lblod.info/id/mail-folders/2>, which is the OUTBOX.
