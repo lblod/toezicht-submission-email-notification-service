@@ -12,7 +12,7 @@
     "cron": "^1.8.2",
     "fs-extra": "^9.0.1",
     "handlebars": "4.7.6",
-    "request-promise": "^4.2.6"
+    "node-fetch": "^2.6.0"
   },
   "author": "",
   "license": "ISC"
