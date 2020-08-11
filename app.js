@@ -5,13 +5,9 @@ import { CronJob } from 'cron';
 
 import EntityFactory from './lib/entity-factory';
 import { generateMailFor } from './lib/email';
-import { MAIL_CONSTRUCTION_CRON } from './config';
+import { MAIL_CONSTRUCTION_CRON, APP_NAME } from './config';
 
 const fetch = require('node-fetch');
-
-// Statics
-export const APP_NAME = 'toezicht-submission-email-notification-service';
-export const APP_URI = `http://lblod.data.gift/services/${APP_NAME}`;
 
 app.use(bodyParser.json());
 
@@ -46,7 +42,7 @@ app.use(errorHandler);
 // CRON-JOBS
 
 new CronJob(MAIL_CONSTRUCTION_CRON, function() {
-  console.log(`construction off notification e-mails initiated by cron job at ${new Date().toISOString()}`);
+  console.log(`construction of notification e-mails initiated by cron job at ${new Date().toISOString()}`);
   fetch('http://localhost/initiate-mail-construction', { method: 'POST' });
 }, null, true);
 
