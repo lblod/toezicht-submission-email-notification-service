@@ -17,9 +17,9 @@ services:
 ### Environment variables
 
 - `MAIL_CONSTRUCTION_CRON`: Frequency at witch the e-mails should be "send-out". Defaults to `0 15 8 * * *`, run every day at 8:15.
-- `MESSAGE_FROM`: sender of the email. NO Defaults implemented.
+- `FROM_EMAIL_ADDRESS`: sender of the email. No defaults implemented.
 - `EMAIL_GRAPH`: refers to the graph where the emails will be stored. Defaults to <http://mu.semte.ch/graphs/system/email>.
-- `EMAIL_FOLDER`: refers to the folder that the emails will be linked to. Defaults to <http://data.lblod.info/id/mail-folders/2>, which is the OUTBOX.
+- `OUTBOX_FOLDER_URI`: refers to the outbox folder that the emails will be linked to. Defaults to <http://data.lblod.info/id/mail-folders/2>.
 - `APP_NAME`: name given to the application. Defaults to 'toezicht-submission-email-notification-service'.
 - `APP_URI`: uri given to the application. Defaults to <http://lblod.data.gift/services/${APP_NAME}>.
 
