@@ -20,8 +20,7 @@ services:
 - `FROM_EMAIL_ADDRESS`: sender of the email. No defaults implemented.
 - `EMAIL_GRAPH`: refers to the graph where the emails will be stored. Defaults to <http://mu.semte.ch/graphs/system/email>.
 - `OUTBOX_FOLDER_URI`: refers to the outbox folder that the emails will be linked to. Defaults to <http://data.lblod.info/id/mail-folders/2>.
-- `APP_NAME`: name given to the application. Defaults to 'toezicht-submission-email-notification-service'.
-- `APP_URI`: uri given to the application. Defaults to <http://lblod.data.gift/services/${APP_NAME}>.
+- `SUBMISSION_APP_URI`: refers to the uri of the application where the submissions are available. Defaults to <https://loket.lokaalbestuur.vlaanderen.be/supervision/submissions>.
 
    
 ## REST API
