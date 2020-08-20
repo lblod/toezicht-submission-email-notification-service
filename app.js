@@ -30,7 +30,7 @@ app.post('/initiate-mail-construction', async function(req, res) {
       unit.submissions = submissions.filter((submission) => submission.createdBy === unit.uri);
       if (unit.submissions.length) {
         await generateMailFor(unit);
-        console.log(`mail send to ${unit.name}`);
+        console.log(`Automatic submission notification mail prepared for ${unit.name} (URI: <${unit.uri}>) containing ${unit.submissions.length} submissions.`);
       }
     }
   } catch (e) {
