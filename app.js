@@ -23,7 +23,7 @@ app.post('/initiate-mail-construction', async function(req, res) {
     const units = await EntityFactory.getAllSubscribedAdministrativeUnites();
     if (!units.length) {
       console.log('no-one subscribed to the auto-submission mail service, no mails send!');
-      return res.send().status(201);
+      return res.send().status(204);
     }
     const submissions = await EntityFactory.getAllInConceptAutomaticSubmissions();
     for (let unit of units) {
