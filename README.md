@@ -54,3 +54,51 @@ berichtencentrum-deliver-email-service:
     SMTP_OR_REST : "smtp"
     EMAIL_ADDRESS: "address@gmail.com"
     EMAIL_PASSWORD: "password"
+```
+
+### Subscribe a besturseenheid to the service
+
+In order to subscribe to the service you will have to manually insert the following data in the triplestore
+
+```
+PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+INSERT {
+     GRAPH <http://mu.semte.ch/graphs/public> {
+         ?org ext:submissionNotificationEmail ?mail ;
+              ext:allowedSubmissionNotificationsMails "true"^^voc:boolean .
+     }
+ }
+```
+
+Being ?org the uri of the besturseenheid and ?mail your email
+
+### Insert submission
+
+In order to add a new submission and trigger the service you can run the following query
+
+```
+PREFIX besluit: <http://data.vlaanderen.be/ns/besluit#>
+PREFIX ext: <http://mu.semte.ch/vocabularies/ext/>
+PREFIX voc: <http://mu.semte.ch/vocabularies/typed-literals/>
+PREFIX melding: <http://lblod.data.gift/vocabularies/automatische-melding/>
+PREFIX pav: <http://purl.org/pav/>
+PREFIX prov: <http://www.w3.org/ns/prov#>
+PREFIX adms: <http://www.w3.org/ns/adms#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX mu: <http://mu.semte.ch/vocabularies/core/>
+PREFIX meb: <http://rdf.myexperiment.org/ontologies/base/>
+PREFIX nie: <http://www.semanticdesktop.org/ontologies/2007/01/19/nie#>
+INSERT DATA {
+  GRAPH <http://mu.semte.ch/graphs/public> {
+    <http://task-uri> a melding:AutomaticSubmissionTask ;
+      prov:generated <http://submission-uri-3> ;
+      adms:status <http://lblod.data.gift/automatische-melding-statuses/successful-concept> .
+    <http://submission-uri>  a meb:Submission ;
+      pav:createdBy ?org;
+      adms:status <http://lblod.data.gift/concepts/79a52da4-f491-4e2f-9374-89a13cde8ecd> ;
+      mu:uuid '1'.
+  }
+}
+```
+
+Remember to change the uris if you run the query multiple times. The ?org should be the same one you subscribed.

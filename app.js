@@ -25,9 +25,13 @@ app.get('/', function(req, res) {
 app.post('/initiate-mail-construction', async function(req, res) {
   try {
     const units = await EntityFactory.getAllSubscribedAdministrativeUnites();
-    if (!units.length) console.log('No one subscribed to the auto-submission mail notifications. No mails need to be prepared.');
+    if (!units.length) {
+      console.log('no-one subscribed to the auto-submission mail service, no mails send!');
+      return res.send().status(204);
+    }
+    const submissions = await EntityFactory.getAllInConceptAutomaticSubmissions();
     for (let unit of units) {
-      unit.submissions = await EntityFactory.getAllInConceptAutomaticSubmissionsFor(unit);
+      unit.submissions = submissions.filter((submission) => submission.createdBy === unit.uri);
       if (unit.submissions.length) {
         await generateMailFor(unit);
         console.log(`Automatic submission notification mail prepared for ${unit.name} (URI: <${unit.uri}>) containing ${unit.submissions.length} submissions.`);
